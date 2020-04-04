@@ -1,5 +1,4 @@
 import requests
-from typing import Optional
 
 API_TOKEN = 'trnsl.1.1.20200404T161735Z.78f7aa8a3c431e25.e5f7e051418f60fcaf420f672ef7cf47d147b19f'
 URL = 'https://translate.yandex.net/api/v1.5/tr.json/translate'
@@ -11,6 +10,7 @@ CODES = {
     422: 'Текст не может быть переведен',
     501: 'Заданное направление перевода не поддерживается'
 }
+
 
 def translate(text: str):
     params = {
@@ -33,5 +33,3 @@ def translate(text: str):
         return {
             'error': CODES.get(response.status_code) or 'Что-то пошло не так'
         }
-
-    
